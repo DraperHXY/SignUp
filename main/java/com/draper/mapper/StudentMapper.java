@@ -11,7 +11,8 @@ public interface StudentMapper {
 
     void insertSimpleStudent(Student student);
 
-    Map selectByName(@Param("name") String name);
+//    Map selectByName(@Param("name") String name);
+    Student selectByName(@Param("name") String name);
 
-
+    void updateWishByName(@Param("name") String name, @Param("wish") String wish);
 }

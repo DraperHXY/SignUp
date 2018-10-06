@@ -15,40 +15,46 @@ VALUES (#{createAt}, #{onlineId}, #{studyType}, #{startStudyTime}, #{dailyLink},
 VALUES (#{createAt}, #{onlineId}, #{name}, #{qq}, #{graduateSchool});
     </insert>
 
-    <select id="selectByName" resultMap="studentResultMap">
+    <!--resultMap="studentResultMap"-->
+    <select id="selectByName" resultType="com.draper.entity.Student">
         SELECT it_mates_table.create_at, it_mates_table.update_at, it_mates_table.online_id, study_type, start_study_time, daily_link, wish, coach_senior, know_from, name, qq, graduate_school
         FROM simple_mates_table,it_mates_table
         WHERE simple_mates_table.online_id = it_mates_table.online_id
         AND simple_mates_table.name = #{name};
     </select>
 
+    <!--<resultMap id="studentResultMap" type="java.util.Map">-->
+        <!--<result property="createAt" column="create_at" jdbcType="BIGINT"-->
+                <!--typeHandler="org.apache.ibatis.type.BigIntegerTypeHandler"/>-->
+        <!--<result property="updateAt" column="update_at" jdbcType="BIGINT"-->
+                <!--typeHandler="org.apache.ibatis.type.BigIntegerTypeHandler"/>-->
+        <!--<result property="onlineId" column="online_id" jdbcType="INTEGER"-->
+                <!--typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>-->
+        <!--<result property="studyType" column="study_type" jdbcType="VARCHAR"-->
+                <!--typeHandler="org.apache.ibatis.type.StringTypeHandler"/>-->
+        <!--<result property="startStudyTime" column="start_study_time" jdbcType="BIGINT"-->
+                <!--typeHandler="org.apache.ibatis.type.BigIntegerTypeHandler"/>-->
+        <!--<result property="dailyLink" column="daily_link" jdbcType="VARCHAR"-->
+                <!--typeHandler="org.apache.ibatis.type.StringTypeHandler"/>-->
+        <!--<result property="wish" column="wish" jdbcType="VARCHAR"-->
+                <!--typeHandler="org.apache.ibatis.type.StringTypeHandler"/>-->
+        <!--<result property="coachSenior" column="coach_senior" jdbcType="VARCHAR"-->
+                <!--typeHandler="org.apache.ibatis.type.StringTypeHandler"/>-->
+        <!--<result property="knowFrom" column="know_from" jdbcType="VARCHAR"-->
+                <!--typeHandler="org.apache.ibatis.type.StringTypeHandler"/>-->
+        <!--<result property="name" column="name" jdbcType="VARCHAR"-->
+                <!--typeHandler="org.apache.ibatis.type.StringTypeHandler"/>-->
+        <!--<result property="qq" column="qq" jdbcType="VARCHAR"-->
+                <!--typeHandler="org.apache.ibatis.type.StringTypeHandler"/>-->
+        <!--<result property="graduateSchool" column="graduate_school" jdbcType="VARCHAR"-->
+                <!--typeHandler="org.apache.ibatis.type.StringTypeHandler"/>-->
+    <!--</resultMap>-->
 
-    <resultMap id="studentResultMap" type="java.util.Map">
-        <result property="createAt" column="create_at" jdbcType="BIGINT"
-                typeHandler="org.apache.ibatis.type.BigIntegerTypeHandler"/>
-        <result property="updateAt" column="update_at" jdbcType="BIGINT"
-                typeHandler="org.apache.ibatis.type.BigIntegerTypeHandler"/>
-        <result property="onlineId" column="online_id" jdbcType="INTEGER"
-                typeHandler="org.apache.ibatis.type.IntegerTypeHandler"/>
-        <result property="studyType" column="study_type" jdbcType="VARCHAR"
-                typeHandler="org.apache.ibatis.type.StringTypeHandler"/>
-        <result property="startStudyTime" column="start_study_time" jdbcType="BIGINT"
-                typeHandler="org.apache.ibatis.type.BigIntegerTypeHandler"/>
-        <result property="dailyLink" column="daily_link" jdbcType="VARCHAR"
-                typeHandler="org.apache.ibatis.type.StringTypeHandler"/>
-        <result property="wish" column="wish" jdbcType="VARCHAR"
-                typeHandler="org.apache.ibatis.type.StringTypeHandler"/>
-        <result property="coachSenior" column="coach_senior" jdbcType="VARCHAR"
-                typeHandler="org.apache.ibatis.type.StringTypeHandler"/>
-        <result property="knowFrom" column="know_from" jdbcType="VARCHAR"
-                typeHandler="org.apache.ibatis.type.StringTypeHandler"/>
-        <result property="name" column="name" jdbcType="VARCHAR"
-                typeHandler="org.apache.ibatis.type.StringTypeHandler"/>
-        <result property="qq" column="qq" jdbcType="VARCHAR"
-                typeHandler="org.apache.ibatis.type.StringTypeHandler"/>
-        <result property="graduateSchool" column="graduate_school" jdbcType="VARCHAR"
-                typeHandler="org.apache.ibatis.type.StringTypeHandler"/>
-    </resultMap>
-
+    <update id="updateWishByName">
+        UPDATE it_mates_table, simple_mates_table
+        SET wish = #{wish}
+        WHERE it_mates_table.online_id = simple_mates_table.online_id
+        AND simple_mates_table.name = #{name};
+    </update>
 
 </mapper>
