@@ -57,14 +57,14 @@ public class StudentDaoImpl implements StudentDao {
     @Override
     public void deleteItStudentByOnlineId(int onlineId) {
         jdbcTemplate.execute(
-                "DELETE FROM it_mates_table" +
+                "DELETE FROM it_mates_table " +
                         "WHERE online_id = '" + onlineId + "';"
         );
     }
 
     @Override
     public void deleteSimpleStudent(int onlineId) {
-        jdbcTemplate.execute("DELETE FROM simple_mates_table" +
+        jdbcTemplate.execute("DELETE FROM simple_mates_table " +
                 "WHERE online_id = '" + onlineId + "';");
     }
 }

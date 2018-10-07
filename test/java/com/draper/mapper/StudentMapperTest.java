@@ -25,7 +25,7 @@ public class StudentMapperTest extends BaseTest {
 
     @Before
     public void testInsertStudent() throws ParseException {
-        logger.warn("插入");
+        logger.warn("采用 MyBatis 插入");
         logger.info("current time {}", new Date());
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         long time_long = sdf.parse("2018-10-2").getTime();
@@ -58,13 +58,13 @@ public class StudentMapperTest extends BaseTest {
 
     @Test
     public void testSelectByName() {
-        logger.warn("查找");
+        logger.warn("采用 MyBatis 查找");
         Student student = studentMapper.selectByName("贾伟奇");
     }
 
     @Test
     public void testUpdateWishByName() {
-        logger.warn("修改");
+        logger.warn("采用 MyBatis 修改");
         studentMapper.updateWishByName("贾伟奇", "老大最帅！");
     }
 
@@ -93,7 +93,7 @@ public class StudentMapperTest extends BaseTest {
 
     @After
     public void testDeleteStudentByOnlineId() {
-        logger.warn("删除");
+        logger.warn("采用 MyBatis 删除");
         logger.info("current time {}", new Date());
         studentMapper.deleteItStudentByOnlineId(4975);
         studentMapper.deleteSimpleStudent(4975);

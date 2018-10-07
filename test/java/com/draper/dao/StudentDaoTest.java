@@ -2,19 +2,24 @@ package com.draper.dao;
 
 import com.draper.BaseTest;
 import com.draper.entity.Student;
+import org.junit.After;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class StudentDaoTest extends BaseTest{
+    private Logger logger = LoggerFactory.getLogger(String.valueOf(this));
 
     @Autowired
     private StudentDao studentDao;
 
     @Test
     public void testInsertItStudent() throws ParseException {
+        logger.warn("采用 JdbcTemplate 插入");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         long time_long = sdf.parse("2018-10-2").getTime();
         Student student = new Student();
@@ -35,8 +40,9 @@ public class StudentDaoTest extends BaseTest{
 
     }
 
-    @Test
+    @After
     public void testDeleteStudent() {
+        logger.warn("采用 JdbcTemplate 删除");
         studentDao.deleteItStudentByOnlineId(4975);
         studentDao.deleteSimpleStudent(4975);
     }
