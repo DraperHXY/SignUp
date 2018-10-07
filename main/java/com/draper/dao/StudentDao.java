@@ -1,17 +1,14 @@
-package com.draper.mapper;
+package com.draper.dao;
 
 import com.draper.entity.Student;
-import org.apache.ibatis.annotations.Param;
 
-import java.util.Map;
-
-public interface StudentMapper {
+public interface StudentDao {
 
     void insertItStudent(Student student);
 
     void insertSimpleStudent(Student student);
 
-    void updateWishByName(@Param("name") String name, @Param("wish") String wish);
+    void updateWishByName(String name,  String wish);
 
     //    Map selectByName(@Param("name") String name);
     Student selectByName(String name);
@@ -19,4 +16,6 @@ public interface StudentMapper {
     void deleteItStudentByOnlineId(int onlineId);
 
     void deleteSimpleStudent(int onlineId);
+
+
 }

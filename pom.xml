@@ -26,9 +26,9 @@
         <!-- 1.日志 -->
         <!-- 实现slf4j接口并整合 -->
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.1.1</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.8.0-alpha2</version>
         </dependency>
 
         <!-- 2.数据库 -->
@@ -126,13 +126,16 @@
     </dependencies>
 
     <build>
-        <finalName>CloudMusicSite-SSM</finalName>
+        <finalName>SignUp</finalName>
 
         <resources>
             <resource>
-                <directory>src/main/java</directory>
+                <directory>main/java</directory>
                 <includes>
                     <include>**/*.xml</include>
+                    <include>**/Test*.java</include>
+                    <include>**/*Test.java</include>
+                    <include>**/*TestCase.java</include>
                 </includes>
                 <filtering>true</filtering>
             </resource>

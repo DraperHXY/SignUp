@@ -57,4 +57,14 @@ VALUES (#{createAt}, #{onlineId}, #{name}, #{qq}, #{graduateSchool});
         AND simple_mates_table.name = #{name};
     </update>
 
+    <delete id="deleteItStudentByOnlineId">
+        DELETE FROM it_mates_table
+        WHERE online_id = #{onlineId};
+    </delete>
+
+    <delete id="deleteSimpleStudent">
+        DELETE FROM simple_mates_table
+        WHERE online_id = #{onlineId};
+    </delete>
+
 </mapper>
