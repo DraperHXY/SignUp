@@ -7,7 +7,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -39,6 +41,26 @@ public class StudentDaoTest extends BaseTest{
         studentDao.insertSimpleStudent(student);
 
     }
+
+//    @Test
+//    public void testTryCatch() throws ParseException {
+//
+//        for (int i = 0; i < 1000000; i++) {
+//            testInsertItStudent();
+//            if (i == 1000){
+//                try {
+//                    throw new SQLException("50 万条数据了");
+//                } catch (SQLException e) {
+//                    e.printStackTrace();
+//                } finally {
+//                    logger.error("不干了，数据库满了");
+//                    return;
+//
+//                }
+//            }
+//        }
+//
+//    }
 
     @After
     public void testDeleteStudent() {

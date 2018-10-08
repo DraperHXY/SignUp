@@ -67,4 +67,9 @@ public class StudentDaoImpl implements StudentDao {
         jdbcTemplate.execute("DELETE FROM simple_mates_table " +
                 "WHERE online_id = '" + onlineId + "';");
     }
+
+    @Override
+    public JdbcTemplate getJdbcTemplate() {
+        return jdbcTemplate;
+    }
 }

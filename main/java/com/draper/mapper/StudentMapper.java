@@ -16,6 +16,8 @@ public interface StudentMapper {
     //    Map selectByName(@Param("name") String name);
     Student selectByName(String name);
 
+    Student selectByOnlineId(int onlineId);
+
     void deleteItStudentByOnlineId(int onlineId);
 
     void deleteSimpleStudent(int onlineId);

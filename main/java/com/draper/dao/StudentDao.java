@@ -1,6 +1,7 @@
 package com.draper.dao;
 
 import com.draper.entity.Student;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 public interface StudentDao {
 
@@ -16,6 +17,8 @@ public interface StudentDao {
     void deleteItStudentByOnlineId(int onlineId);
 
     void deleteSimpleStudent(int onlineId);
+
+    JdbcTemplate getJdbcTemplate();
 
 
 }

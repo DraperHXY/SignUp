@@ -63,6 +63,15 @@ public class StudentMapperTest extends BaseTest {
     }
 
     @Test
+    public void testSelectById() {
+        logger.warn("采用 MyBatis 查找");
+        Student student = studentMapper.selectByOnlineId(4975);
+        logger.debug(student.getCoachSenior());
+    }
+
+
+
+    @Test
     public void testUpdateWishByName() {
         logger.warn("采用 MyBatis 修改");
         studentMapper.updateWishByName("贾伟奇", "老大最帅！");
