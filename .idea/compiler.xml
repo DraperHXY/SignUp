@@ -9,7 +9,7 @@
         <module name="SignUp" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="SignUp" target="1.7" />
     </bytecodeTargetLevel>
   </component>
