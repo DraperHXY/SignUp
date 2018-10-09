@@ -84,4 +84,21 @@ VALUES (#{createAt}, #{onlineId}, #{name}, #{qq}, #{graduateSchool});
         </foreach>
     </insert>
 
+    <select id="getStudentListChooseEntity" parameterType="com.draper.entity.Student">
+        select * FROM it_mates_table
+        <where>
+            <choose>
+                <when test="name != null">
+                    ....
+                </when>
+            </choose>
+            <choose>
+                <when test="online_id != null">
+                    ....
+                </when>
+            </choose>
+        </where>
+    </select>
+
+
 </mapper>
